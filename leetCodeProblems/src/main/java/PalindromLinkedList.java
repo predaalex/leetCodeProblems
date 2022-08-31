@@ -29,7 +29,7 @@ public class PalindromLinkedList {
     }
 }
 
-class Solution {
+class Solution1 {
     public static boolean isPalindrome(PalindromLinkedList head) {
         LinkedList<Integer> linkedList = new LinkedList<>();
         boolean palindrom = false;
