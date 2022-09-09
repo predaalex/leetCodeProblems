@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-        public class NumbersWithSameConsecDiff {
+public class NumbersWithSameConsecDiff {
     public static void main(String[] args) {
 
         int n = 2;
