@@ -21,6 +21,9 @@ public class XMLToJSON {
         xml = xml.replace("<Items>", "");
         xml = xml.replace("</Items>", "");
 
+        xml = xml.replace("<Item", "<Items");
+        xml = xml.replace("</Item>", "</Items>");
+
         //converting xml into JSON object
         JSONObject obj = XML.toJSONObject(xml);
 
