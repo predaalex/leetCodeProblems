@@ -31,7 +31,7 @@ public class PushDominoes {
     private static String pushDominoes(String dominoes2) {
 
         char[] dominoes = dominoes2.toCharArray();
-        String returned = "";
+        StringBuilder returned = new StringBuilder();
 
         for(int i = 0; i < dominoes.length - 1; i++){
             int start = i, end = i;
@@ -91,9 +91,9 @@ public class PushDominoes {
         }
 
         for(char c : dominoes)
-            returned += c;
+            returned.append(c);
 
-        return returned;
+        return returned.toString();
 
     }
 
