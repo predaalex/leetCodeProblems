@@ -23,7 +23,7 @@
 //-----------------------------------------------------
 public class PushDominoes {
     public static void main(String[] args) {
-        String dominoes = ".L.R.";
+        String dominoes = "R.R.L";
 
         System.out.println(pushDominoes(dominoes));
     }
@@ -32,23 +32,61 @@ public class PushDominoes {
 
         char[] dominoes = dominoes2.toCharArray();
         String returned = "";
-        int moveCounter = 1;
-        while(moveCounter != 0){
-            moveCounter = 0;
-            for(int i = 0; i < dominoes.length - 1; i++){
-                if(i < dominoes.length - 2)
-                    if(dominoes[i] == 'R' && dominoes[i + 1] == '.' && dominoes[i + 2] == 'L')
-                        i+=2;
-                if(dominoes[i] == 'R' && dominoes[i + 1] == '.'){
-                    dominoes[i + 1] = 'R';
-                    i++;
-                    moveCounter++;
+
+        for(int i = 0; i < dominoes.length - 1; i++){
+            int start = i, end = i;
+
+            //if there is an L complete arr
+            if(i > 0) {
+                if (dominoes[i] == 'L' && dominoes[i - 1] == '.') {
+                    dominoes[i - 1] = 'L';
+                    i -= 2;
+                    continue;
                 }
-                if(dominoes[i] =='.' && dominoes[i + 1] == 'L'){
-                    dominoes[i] = 'L';
+            }
+
+            //find where R start and it stops then complete arr
+            boolean endBool = false;
+            if(dominoes[i] == 'R') {
+                while (dominoes[i] != 'L') {
                     i++;
-                    moveCounter++;
+                    if (i == dominoes.length) {
+                        endBool = true;
+                        break;
+                    }
+                    end++;
+                    if (dominoes[i] == 'R') {
+                        for (int j = start; j < end; j++)
+                            dominoes[j] = 'R';
+                        start = i;
+                    }
                 }
+
+                System.out.println(start + " " + end);
+                if (!endBool) {
+                    for (int j = start + 1; j < end; j++) {
+                        if ((start + end) % 2 == 1) {
+                            if (j <= (start + end) / 2) {
+                                dominoes[j] = 'R';
+                            } else
+                                dominoes[j] = 'L';
+                        } else {
+                            if (j < (start + end) / 2)
+                                dominoes[j] = 'R';
+                            else if (j > (start + end) / 2)
+                                dominoes[j] = 'L';
+                        }
+                    }
+                    i = end;
+                    continue;
+                } else {
+                    for(int j = start; j <= end; j++)
+                        dominoes[j] = 'R';
+                }
+            }
+            if(i < dominoes.length - 1 && dominoes[i] =='.' && dominoes[i + 1] == 'L') {
+                dominoes[i] = 'L';
+                i--;
             }
         }
 
