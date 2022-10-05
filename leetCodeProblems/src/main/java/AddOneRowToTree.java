@@ -58,7 +58,7 @@ public class AddOneRowToTree {
 
         depth++;
 
-        if(depth == row - 1 || row == 1) {
+        if(depth == row - 1) {
             PathSum.TreeNode aux = node.left;
             node.left = new PathSum.TreeNode(val);
             node.left.left = aux;
@@ -66,8 +66,6 @@ public class AddOneRowToTree {
             aux = node.right;
             node.right = new PathSum.TreeNode(val);
             node.right.right = aux;
-            if(row == 1)
-                row = 0;
         }
 
         if(node.left != null)
