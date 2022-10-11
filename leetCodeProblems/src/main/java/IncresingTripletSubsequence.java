@@ -27,16 +27,16 @@ public class IncresingTripletSubsequence {
 
     private static boolean increasingTriplet(int[] nums) {
 
-        int smallest = Integer.MAX_VALUE;
-        int biggest = Integer.MAX_VALUE;
+        int start = Integer.MAX_VALUE;
+        int middle = Integer.MAX_VALUE;
 
         for(int n : nums){
-            if(n <= smallest){
-                smallest = n;
-            } else if( n <= biggest) {
-                biggest = n;
+            if(n <= start){
+                start = n;
+            } else if( n <= middle) {
+                middle = n;
             } else
-                return true;
+                return true; // end
         }
 
         return false;
