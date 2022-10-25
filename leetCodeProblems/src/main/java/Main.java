@@ -1,62 +1,48 @@
-import java.util.*;
+//        409. Longest Palindrome
+//
+//        Given a string s which consists of lowercase or uppercase letters, return the length of the longest palindrome that can be built with those letters.
+//
+//        Letters are case sensitive, for example, "Aa" is not considered a palindrome here.
+//===========================================================================================
+//        Example 1:
+//        Input: s = "abccccdd"
+//        Output: 7
+//        Explanation: One longest palindrome that can be built is "dccaccd", whose length is 7.
+//-------------------------------------------------------------------------------------------
+//        Example 2:
+//        Input: s = "a"
+//        Output: 1
+//        Explanation: The longest palindrome that can be built is "a", whose length is 1.import java.util.TreeSet;
+
+import java.util.TreeSet;
 
 public class Main {
     public static void main(String[] args) {
-        String[] temp = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"};
-        List<String> arr = new ArrayList<>(Arrays.asList(temp));
-        System.out.println(findPermutation(arr));
+        String s = "aaabaaaa";
+
+        System.out.println(longestPalindrome(s));
     }
 
-    private static int findMax(List<String> arr) {
+    private static int longestPalindrome(String s) {
+        boolean odd = false;
+        int evenCounter = 0;
 
-        TreeSet<Character> uniqueChars = new TreeSet<>();
+        TreeSet<Character> treeSet = new TreeSet<>();
 
-        for (String word : arr) {
-            TreeSet<Character> uniqueWord = new TreeSet<>();
-            boolean contains = false;
-            for (char c : word.toCharArray()) {
-
-                if (uniqueWord.contains(c) || uniqueChars.contains(c)) {
-                    contains = true;
-                    break;
-                } else
-                    uniqueWord.add(c);
-            }
-
-            if (!contains)
-                for (char c : word.toCharArray())
-                    uniqueChars.add(c);
-            else {
-                System.out.println(uniqueChars + " " + arr + " max " + uniqueChars.size());
-                return uniqueChars.size();
-            }
-
-
-        }
-        return uniqueChars.size();
-    }
-
-    private static int findPermutation(List<String> arr) {
-        if (arr == null || arr.size() == 0)
-            return 0;
-        int max = 0;
-        return permutations(arr, 0, max);
-    }
-
-    private static int permutations(List<String> arr, int currentIndex, int max) {
-
-        if (currentIndex == arr.size() - 1) {
-
-            return Math.max(max, findMax(arr));
+        for (char c : s.toCharArray()) {
+            if (treeSet.contains(c)) {
+                evenCounter += 2;
+                treeSet.remove(c);
+            } else
+                treeSet.add(c);
         }
 
-        for (int i = currentIndex; i < arr.size(); i++) {
-            Collections.swap(arr, currentIndex, i);
-            max = Math.max(max, permutations(arr, currentIndex + 1, max));
-            Collections.swap(arr, currentIndex, i);
-        }
+        if (!treeSet.isEmpty())
+            odd = true;
 
-        return max;
+        if (odd)
+            return evenCounter + 1;
+        else
+            return evenCounter;
     }
-
 }
