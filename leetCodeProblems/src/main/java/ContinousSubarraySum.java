@@ -44,7 +44,7 @@ public class ContinousSubarraySum {
 
             Integer prev = map.get(runningSum);
             if (prev != null) {
-                if (i - Math.abs(prev) > 1)
+                if (i - prev > 1)
                     return true;
             } else
                 map.put(runningSum, i);
