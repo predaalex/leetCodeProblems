@@ -25,26 +25,15 @@ public class TwoSum {
     private static int[] twoSum(int[] nums, int target) {
 
         HashMap<Integer, Integer> hashMap = new HashMap<>();
-        int nr1 = 0, nr2 = 0;
-
-        for (int num : nums) {
-
-            if (hashMap.containsKey(target - num)) {
-                nr1 = target - num;
-                nr2 = num;
-                break;
-            }
-            hashMap.put(num, hashMap.getOrDefault(num, 0) + 1);
-        }
-
         int[] index = new int[2];
-        for(int i = 0; i < nums.length; i++) {
-            if(nums[i] == nr1 && index[0] == 0){
-                index[0] = i;
-                continue;
-            }
-            if(nums[i] == nr2)
+        //value & pos
+        for(int i = 0; i < nums.length; i++){
+            if(hashMap.containsKey(target - nums[i])){
+                index[0] = hashMap.get(target - nums[i]);
                 index[1] = i;
+            } else {
+                hashMap.put(nums[i], i);
+            }
         }
 
         return index;
