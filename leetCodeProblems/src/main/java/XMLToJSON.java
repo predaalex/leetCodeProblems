@@ -1,4 +1,4 @@
-import org.json.*;
+//import org.json.*;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -25,7 +25,7 @@ public class XMLToJSON {
         xml = xml.replace("</Item>", "</Items>");
 
         //converting xml into JSON object
-        JSONObject obj = XML.toJSONObject(xml);
+//        JSONObject obj = XML.toJSONObject(xml);
 
         //creating .JSON file
         String path = "leetCodeProblems/resources/PurchaseOrders.JSON";
@@ -43,7 +43,7 @@ public class XMLToJSON {
 
         //writing JSON object into .JSON file
         try (PrintWriter out = new PrintWriter(new FileWriter(path))) {
-            out.write(obj.toString());
+//            out.write(obj.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
