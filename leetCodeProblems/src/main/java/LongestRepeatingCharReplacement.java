@@ -1,3 +1,5 @@
+package main.java;
+
 public class LongestRepeatingCharReplacement {
     public static void main(String[] args) {
         String s = "ABBB";

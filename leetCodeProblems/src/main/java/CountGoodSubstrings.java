@@ -1,4 +1,4 @@
-//        1876. Substrings of Size Three with Distinct Characters
+package main.java;//        1876. Substrings of Size Three with Distinct Characters
 //
 //        A string is good if there are no repeated characters.
 //

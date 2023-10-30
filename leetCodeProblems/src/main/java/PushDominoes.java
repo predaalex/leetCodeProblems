@@ -1,3 +1,5 @@
+package main.java;
+
 //        838. Push Dominoes
 //
 //        There are n dominoes in a line, and we place each domino vertically upright. In the beginning, we simultaneously push some of the dominoes either to the left or to the right.

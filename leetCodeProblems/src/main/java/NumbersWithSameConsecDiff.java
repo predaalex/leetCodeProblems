@@ -1,4 +1,4 @@
-        /*967. Numbers With Same Consecutive Differences
+package main.java;        /*967. Numbers With Same Consecutive Differences
 
         Return all non-negative integers of length n such that the absolute difference between every two consecutive digits is k.
 

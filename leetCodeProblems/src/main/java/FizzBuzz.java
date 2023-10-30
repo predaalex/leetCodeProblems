@@ -1,6 +1,6 @@
-//        Given an integer n, return a string array answer (1-indexed) where:
+package main.java;//        Given an integer n, return a string array answer (1-indexed) where:
 //
-//        answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
+//        answer[i] == "main.java.FizzBuzz" if i is divisible by 3 and 5.
 //        answer[i] == "Fizz" if i is divisible by 3.
 //        answer[i] == "Buzz" if i is divisible by 5.
 //        answer[i] == i (as a string) if none of the above conditions are true.
@@ -17,7 +17,7 @@
 //        Example 3:
 //
 //        Input: n = 15
-//        Output: ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"]
+//        Output: ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","main.java.FizzBuzz"]
 import java.util.ArrayList;
 
 public class FizzBuzz {
@@ -35,7 +35,7 @@ public class FizzBuzz {
 
         for(int i = 1; i <= n; i++) {
             if( i % 15 == 0) {
-                arrayList.add("FizzBuzz");
+                arrayList.add("main.java.FizzBuzz");
             } else if ( i % 3 == 0) {
                 arrayList.add("Fizz");
             } else if ( i % 5 == 0) {

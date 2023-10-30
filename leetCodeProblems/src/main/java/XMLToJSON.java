@@ -1,4 +1,4 @@
-//import org.json.*;
+package main.java;//import org.json.*;
 
 import java.io.File;
 import java.io.FileWriter;

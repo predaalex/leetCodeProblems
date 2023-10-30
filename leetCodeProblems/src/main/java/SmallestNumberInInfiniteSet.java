@@ -1,4 +1,4 @@
-//        2336. Smallest Number in Infinite Set
+package main.java;//        2336. Smallest Number in Infinite Set
 //
 //        You have a set which contains all positive integers [1, 2, 3, 4, 5, ...].
 //

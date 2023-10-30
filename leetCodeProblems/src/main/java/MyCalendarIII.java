@@ -1,4 +1,4 @@
-//        732. My Calendar III
+package main.java;//        732. My Calendar III
 //        A k-booking happens when k events have some non-empty intersection (i.e., there is some time that is common to all k events.)
 //
 //        You are given some events [start, end), after each given event, return an integer k representing the maximum k-booking between all the previous events.
