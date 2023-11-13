@@ -26,7 +26,6 @@ public class MinimumSizeSubarraySum {
         int target1 = 7;
 
         int[] nums2 = {12, 28, 83, 4, 25, 26, 25, 2, 25, 25, 25, 12};
-        int[] result = {0, 0, 0, 0, 0, 0, 0, 0, 0};
         int target2 = 213;
 
         System.out.println(minSubArrayLen(target2, nums2));
