@@ -2,6 +2,7 @@ package main.java;
 
 import java.util.HashSet;
 import java.util.Set;
+
 //36. Valid Sudoku
 //Medium
 //Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
@@ -54,6 +55,7 @@ public class ValidSudoku {
                 , {'.', '.', '.', '4', '1', '9', '.', '.', '5'}
                 , {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
         System.out.println(isValidSudoku(board));
+        System.out.println(isValidSudokuV2(board));
     }
 
     private static boolean isValidSudoku(char[][] board) {
@@ -98,6 +100,23 @@ public class ValidSudoku {
             }
         }
 
+        return true;
+    }
+
+    private static boolean isValidSudokuV2(char[][] board) {
+        Set<String> set = new HashSet<>();
+
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                char number = board[i][j];
+                if (number != '.')
+                    if (!set.add(number + " in row " + i) ||
+                        !set.add(number + " in col " + j) ||
+                        !set.add(number + " in square " + i / 3 + "-" + j / 3)) {
+                        return false;
+                    }
+            }
+        }
         return true;
     }
 }
