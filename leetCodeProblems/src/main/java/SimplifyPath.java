@@ -43,11 +43,10 @@ public class SimplifyPath {
 
     private static String simplifyPath(String path) {
         StringBuilder stringBuilder = new StringBuilder("/");
+        Stack<String> stack = new Stack<>();
 
         path = cleanPath(path);
         String[] splitedPath = path.split("/");
-        Stack<String> stack = new Stack<>();
-        System.out.println(Arrays.toString(splitedPath));
 
         for(String str : splitedPath) {
 
